@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brasserie des Ducs — Bar Brasserie Restaurant à Bayeux</title>
+<meta name="description" content="La Brasserie des Ducs vous ouvre ses portes au cœur de Bayeux : cuisine canaille et généreuse d'inspiration normande, ambiance art déco chaleureuse, ouvert 7j/7. Réservez en ligne.">
+<link rel="canonical" href="https://www.brasseriedesducs-bayeux.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BRASSERIE DES DUCS — refonte premium
+   Palette Normandie : crème / beige / noir profond / vert bouteille
+                        / cuivre / bois / or discret
+   ============================================================ */
+
+:root{
+  --c-creme:#F4EEDF;
+  --c-creme-2:#FBF8F1;
+  --c-beige:#E6D8BC;
+  --c-noir:#15130E;
+  --c-noir-2:#1D1A13;
+  --c-vert:#1E3B2C;
+  --c-vert-2:#274A37;
+  --c-cuivre:#B6733A;
+  --c-cuivre-clair:#D08F52;
+  --c-bois:#5B3E29;
+  --c-or:#C9A24B;
+
+  --ink:#1C1A14;
+  --ink-soft:rgba(28,26,20,.68);
+  --paper-ink:rgba(244,238,223,.82);
+  --paper-ink-soft:rgba(244,238,223,.58);
+
+  --font-display:'Fraunces', serif;
+  --font-body:'Inter', sans-serif;
+
+  --fs-hero: clamp(2.6rem, 6.2vw + 1rem, 6.4rem);
+  --fs-h2: clamp(2.1rem, 3.4vw + 1rem, 3.6rem);
+  --fs-h3: clamp(1.3rem, 1.4vw + 1rem, 1.9rem);
+  --fs-lead: clamp(1.05rem, .5vw + 1rem, 1.25rem);
+
+  --container: 1240px;
+  --pad: clamp(1.25rem, 4vw, 3.5rem);
+  --radius: 2px;
+  --ease: cubic-bezier(.22,.7,.24,1);
+  --header-h: 84px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top: var(--header-h);}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--c-creme);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display); margin:0; font-weight:600; line-height:1.05;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+input,textarea{font:inherit;}
+
+.container{max-width:var(--container); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+}
+
+/* ---------- Skip link ---------- */
+.skip-link{
+  position:absolute; left:1rem; top:-60px; z-index:1000;
+  background:var(--c-noir); color:var(--c-creme); padding:.8rem 1.4rem;
+  border-radius:var(--radius); transition:top .25s var(--ease);
+  font-size:.85rem; letter-spacing:.04em;
+}
+.skip-link:focus{top:1rem;}
+
+/* ---------- Focus visibility ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--c-cuivre); outline-offset:3px;
+}
+
+/* ============================================================
+   EYEBROW / LABELS
+   ============================================================ */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.6em;
+  font-family:var(--font-body); font-weight:600; font-size:.72rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--c-cuivre);
+}
+.eyebrow::before{content:""; width:28px; height:1px; background:var(--c-cuivre);}
+section.on-dark .eyebrow{color:var(--c-or);}
+section.on-dark .eyebrow::before{background:var(--c-or);}
+
+/* ============================================================
+   ART-DECO ARCH FRAME (élément signature)
+   ============================================================ */
+.frame{
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius: 50% 50% 0 0 / 14% 14% 0 0;
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(201,162,75,.20), transparent 60%),
+    linear-gradient(155deg, var(--c-vert) 0%, var(--c-noir) 46%, var(--c-bois) 78%, var(--c-cuivre) 130%);
+}
+.frame.wide{aspect-ratio:16/10; border-radius:50% 50% 0 0 / 9% 9% 0 0;}
+.frame.square{aspect-ratio:1/1; border-radius:50% 50% 0 0 / 16% 16% 0 0;}
+.frame.tall{aspect-ratio:3/4.4; border-radius:50% 50% 0 0 / 12% 12% 0 0;}
+.frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.frame::before{ /* fine deco linework */
+  content:""; position:absolute; inset:10px; z-index:2; pointer-events:none;
+  border:1px solid rgba(244,238,223,.28);
+  border-radius: 50% 50% 0 0 / 14% 14% 0 0;
+}
+.frame .sunburst{
+  position:absolute; top:6%; left:50%; translate:-50% 0; width:64%; z-index:1;
+  opacity:.35; color:var(--c-or);
+}
+.frame.is-placeholder::after{
+  content: attr(data-caption);
+  position:absolute; left:50%; bottom:9%; translate:-50% 0; z-index:3;
+  font-family:var(--font-body); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(244,238,223,.75); background:rgba(21,19,14,.35); backdrop-filter:blur(2px);
+  padding:.5em .9em; border:1px solid rgba(244,238,223,.3); border-radius:999px;
+  opacity:0; transition:opacity .35s var(--ease);
+  max-width:80%; text-align:center;
+}
+.frame:hover.is-placeholder::after, .frame:focus-within.is-placeholder::after{opacity:1;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  height:var(--header-h);
+  display:flex; align-items:center;
+  background:transparent;
+  transition: background .35s var(--ease), box-shadow .35s var(--ease), height .3s var(--ease);
+}
+.site-header .container{display:flex; align-items:center; justify-content:space-between; width:100%;}
+.site-header.scrolled{
+  background:rgba(21,19,14,.92); backdrop-filter:blur(10px);
+  box-shadow:0 8px 30px rgba(0,0,0,.18); height:68px;
+}
+.brand{
+  display:flex; flex-direction:column; line-height:1; gap:.15rem; text-decoration:none;
+  color:var(--c-creme);
+}
+.brand strong{font-family:var(--font-display); font-size:1.35rem; font-weight:600; letter-spacing:.01em;}
+.brand span{font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; color:var(--c-or);}
+
+.nav-desktop{display:none;}
+@media (min-width: 980px){
+  .nav-desktop{display:flex; align-items:center; gap:2.1rem;}
+  .nav-desktop a{
+    font-size:.82rem; letter-spacing:.03em; color:var(--c-creme); text-decoration:none;
+    position:relative; padding:.3rem 0; opacity:.88;
+  }
+  .nav-desktop a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:var(--c-or);
+    transition:right .3s var(--ease);
+  }
+  .nav-desktop a:hover{opacity:1;}
+  .nav-desktop a:hover::after{right:0;}
+}
+.header-actions{display:flex; align-items:center; gap:.9rem;}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
+  font-family:var(--font-body); font-weight:600; font-size:.82rem; letter-spacing:.03em;
+  padding:.85em 1.6em; border-radius:999px; text-decoration:none;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+  white-space:nowrap;
+}
+.btn-cuivre{background:var(--c-cuivre); color:var(--c-creme-2);}
+.btn-cuivre:hover{background:var(--c-cuivre-clair); transform:translateY(-2px); box-shadow:0 12px 28px rgba(182,115,58,.35);}
+.btn-ghost-dark{border:1px solid rgba(244,238,223,.4); color:var(--c-creme);}
+.btn-ghost-dark:hover{border-color:var(--c-or); background:rgba(244,238,223,.06);}
+.btn-outline{border:1px solid var(--c-noir); color:var(--c-noir);}
+.btn-outline:hover{background:var(--c-noir); color:var(--c-creme);}
+.btn-line{border:1px solid var(--c-or); color:inherit;}
+.btn-line:hover{background:var(--c-or); color:var(--c-noir);}
+.btn-sm{padding:.65em 1.2em; font-size:.75rem;}
+
+.gift-link{
+  display:none; font-size:.78rem; color:var(--c-or); text-decoration:none; border-bottom:1px solid transparent;
+}
+@media (min-width:1180px){ .gift-link{display:inline-block;} }
+.gift-link:hover{border-color:var(--c-or);}
+
+.burger{
+  display:flex; flex-direction:column; gap:5px; padding:.5rem; z-index:600;
+}
+@media (min-width:980px){ .burger{display:none;} }
+.burger span{width:24px; height:2px; background:var(--c-creme); transition:all .3s var(--ease);}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.nav-mobile{
+  position:fixed; inset:0; z-index:450; background:var(--c-noir);
+  display:flex; flex-direction:column; justify-content:center; gap:1.6rem; padding:2rem var(--pad);
+  transform:translateY(-100%); transition:transform .45s var(--ease);
+}
+.nav-mobile.open{transform:translateY(0);}
+.nav-mobile a{
+  font-family:var(--font-display); font-size:1.9rem; color:var(--c-creme); text-decoration:none; font-weight:500;
+}
+.nav-mobile .nav-mobile-cta{display:flex; gap:1rem; margin-top:1rem; flex-wrap:wrap;}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100svh; display:flex; align-items:flex-end;
+  background:
+    radial-gradient(120% 70% at 15% 0%, rgba(201,162,75,.16), transparent 55%),
+    radial-gradient(90% 60% at 85% 10%, rgba(182,115,58,.18), transparent 55%),
+    linear-gradient(165deg, var(--c-vert) 0%, var(--c-noir) 55%, var(--c-noir-2) 100%);
+  overflow:hidden;
+}
+.hero-bg-photo{position:absolute; inset:0; z-index:0;}
+.hero-bg-photo img{width:100%; height:100%; object-fit:cover; opacity:.55; animation: kenburns 26s ease-in-out infinite alternate;}
+@keyframes kenburns{ from{transform:scale(1);} to{transform:scale(1.09);} }
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(0deg, rgba(21,19,14,.92) 0%, rgba(21,19,14,.35) 46%, rgba(21,19,14,.15) 100%);
+}
+.hero-arch{
+  position:absolute; left:50%; top:14%; translate:-50% 0; z-index:1;
+  width:min(72vw, 640px); opacity:.16; color:var(--c-or); pointer-events:none;
+}
+.hero-inner{position:relative; z-index:2; width:100%; padding-bottom:clamp(3rem,7vw,5.5rem); padding-top:calc(var(--header-h) + 2rem);}
+.hero-eyebrow{color:var(--c-or); margin-bottom:1.4rem;}
+.hero h1{
+  font-size:var(--fs-hero); color:var(--c-creme-2); font-weight:600; letter-spacing:-.01em;
+  max-width:14ch;
+}
+.hero h1 em{font-style:italic; font-weight:500; color:var(--c-cuivre-clair);}
+.hero-sub{
+  font-size:.98rem; letter-spacing:.16em; text-transform:uppercase; color:var(--paper-ink-soft);
+  margin-top:1.1rem;
+}
+.hero-lead{
+  font-size:var(--fs-lead); color:var(--paper-ink); max-width:46ch; margin-top:1.6rem; line-height:1.6;
+  font-weight:400;
+}
+.hero-ctas{display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.4rem;}
+.hero-scroll{
+  position:absolute; right:var(--pad); bottom:2rem; z-index:2; display:flex; flex-direction:column; align-items:center; gap:.6rem;
+  color:var(--paper-ink-soft); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+}
+.hero-scroll .line{width:1px; height:46px; background:linear-gradient(var(--c-or), transparent); animation:pulse-line 2.2s ease-in-out infinite;}
+@keyframes pulse-line{ 0%,100%{opacity:.4;} 50%{opacity:1;} }
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+.stats{
+  background:var(--c-creme-2); border-top:1px solid rgba(28,26,20,.08); border-bottom:1px solid rgba(28,26,20,.08);
+  padding:clamp(2.4rem,5vw,3.6rem) 0;
+}
+.stats-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2rem 1.5rem;}
+@media(min-width:760px){ .stats-grid{grid-template-columns:repeat(4,1fr);} }
+.stat{text-align:center; padding:0 .5rem; position:relative;}
+.stat-arch{width:46px; height:46px; margin:0 auto .9rem; color:var(--c-cuivre);}
+.stat strong{display:block; font-family:var(--font-display); font-size:clamp(1.05rem,1.6vw,1.35rem); font-weight:600; color:var(--ink);}
+.stat span{display:block; font-size:.74rem; letter-spacing:.06em; color:var(--ink-soft); margin-top:.35rem;}
+
+/* ============================================================
+   SECTION SCAFFOLDING
+   ============================================================ */
+section{position:relative; padding:clamp(4.5rem,9vw,8rem) 0;}
+section.on-dark{background:var(--c-vert); color:var(--c-creme-2);}
+section.on-noir{background:var(--c-noir); color:var(--c-creme-2);}
+section.on-beige{background:var(--c-beige);}
+.section-head{max-width:640px; margin-bottom:clamp(2.4rem,4vw,4rem);}
+.section-head h2{font-size:var(--fs-h2); margin-top:.9rem;}
+.section-head p{margin-top:1.2rem; font-size:var(--fs-lead); color:var(--ink-soft); line-height:1.6;}
+section.on-dark .section-head p, section.on-noir .section-head p{color:var(--paper-ink);}
+
+/* divider between sections (art déco fan) */
+.deco-divider{display:flex; justify-content:center; padding:0; line-height:0;}
+.deco-divider svg{width:110px; height:auto; color:var(--c-or); opacity:.55;}
+
+/* reveal-on-scroll */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in-view{opacity:1; transform:none;}
+.reveal-stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+/* ============================================================
+   PRÉSENTATION
+   ============================================================ */
+.presentation{display:grid; gap:3rem; align-items:center;}
+@media(min-width:900px){ .presentation{grid-template-columns:1fr 1fr; gap:5rem;} }
+.presentation .col-text p + p{margin-top:1.1rem;}
+.presentation .col-text{font-size:var(--fs-lead); line-height:1.75; color:var(--paper-ink);}
+.pull{font-family:var(--font-display); font-style:italic; font-size:1.4rem; color:var(--c-or); margin:1.8rem 0; display:block;}
+
+/* ============================================================
+   LE CHEF
+   ============================================================ */
+.chef-grid{display:grid; gap:3rem; align-items:center;}
+@media(min-width:900px){ .chef-grid{grid-template-columns:.85fr 1.15fr; gap:5rem;} }
+.chef-grid .col-text p{font-size:var(--fs-lead); line-height:1.75; color:var(--ink-soft);}
+.chef-grid .col-text p + p{margin-top:1.1rem;}
+.chef-sign{margin-top:2rem; font-family:var(--font-display); font-style:italic; font-size:1.15rem; color:var(--c-cuivre);}
+
+/* ============================================================
+   SPÉCIALITÉS — cards
+   ============================================================ */
+.dish-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem;}
+@media(min-width:700px){ .dish-grid{grid-template-columns:repeat(3,1fr); gap:1.8rem;} }
+.dish-card{position:relative;}
+.dish-card .frame{margin-bottom:1rem;}
+.dish-card h3{font-size:1.15rem; font-weight:600;}
+.dish-card .tag{
+  display:inline-block; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--c-cuivre);
+  margin-top:.4rem;
+}
+.dish-card p{margin-top:.55rem; font-size:.92rem; color:var(--ink-soft); line-height:1.55;}
+
+/* ============================================================
+   MENUS — tickets
+   ============================================================ */
+.menu-grid{display:grid; gap:1.6rem;}
+@media(min-width:760px){ .menu-grid{grid-template-columns:repeat(2,1fr);} }
+.ticket{
+  position:relative; background:var(--c-noir-2); border:1px solid rgba(244,238,223,.14);
+  padding:2.1rem 2rem; border-radius:var(--radius);
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.ticket:hover{border-color:var(--c-or); transform:translateY(-4px);}
+.ticket-top{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:.9rem;}
+.ticket-top h3{font-size:1.35rem; color:var(--c-creme-2);}
+.ticket-price{font-family:var(--font-display); font-style:italic; font-size:1.5rem; color:var(--c-or); white-space:nowrap;}
+.ticket p{color:var(--paper-ink); font-size:.95rem; line-height:1.6;}
+.ticket .note{display:block; margin-top:.9rem; font-size:.72rem; letter-spacing:.03em; color:var(--paper-ink-soft); font-style:italic;}
+.ticket-perf{
+  position:absolute; top:0; bottom:0; left:0; width:0; border-left:1px dashed rgba(244,238,223,.18);
+}
+.menus-cta{margin-top:2.6rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:center;}
+
+/* ============================================================
+   GALERIE
+   ============================================================ */
+.gallery{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1rem;
+}
+@media(min-width:700px){ .gallery{grid-template-columns:repeat(4,1fr);} }
+.gallery .frame{cursor:zoom-in;}
+.gallery .g1{grid-column:span 2; grid-row:span 2;}
+@media(max-width:699px){ .gallery .g1{grid-column:span 2; grid-row:auto;} }
+
+.lightbox{
+  position:fixed; inset:0; z-index:800; background:rgba(15,14,10,.94);
+  display:flex; align-items:center; justify-content:center; padding:2rem;
+  opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
+}
+.lightbox.open{opacity:1; pointer-events:auto;}
+.lightbox-inner{max-width:840px; width:100%; text-align:center;}
+.lightbox .frame{aspect-ratio:16/10; margin:0 auto 1.2rem;}
+.lightbox p{color:var(--paper-ink); font-size:.9rem; letter-spacing:.05em;}
+.lightbox-close{
+  position:absolute; top:1.6rem; right:1.6rem; color:var(--c-creme); font-size:1rem;
+  border:1px solid rgba(244,238,223,.35); border-radius:999px; padding:.6em 1.1em;
+}
+
+/* ============================================================
+   AVIS
+   ============================================================ */
+.reviews-wrap{position:relative;}
+.reviews-track{display:flex; gap:1.6rem; overflow:hidden;}
+.review-card{
+  flex:0 0 100%; background:var(--c-creme-2); border:1px solid rgba(28,26,20,.08);
+  padding:2.2rem; border-radius:var(--radius);
+}
+@media(min-width:760px){ .review-card{flex:0 0 calc(33.333% - 1.1rem);} }
+.stars{color:var(--c-cuivre); font-size:1rem; letter-spacing:.15em;}
+.review-card p{margin-top:1rem; font-size:1rem; line-height:1.65; color:var(--ink);}
+.review-card .who{margin-top:1.2rem; font-size:.78rem; letter-spacing:.04em; color:var(--ink-soft); text-transform:uppercase;}
+.reviews-controls{display:flex; justify-content:space-between; align-items:center; margin-top:2rem;}
+.reviews-dots{display:flex; gap:.5rem;}
+.reviews-dots button{width:8px; height:8px; border-radius:50%; background:rgba(28,26,20,.22);}
+.reviews-dots button.active{background:var(--c-cuivre);}
+.reviews-arrows{display:flex; gap:.6rem;}
+.reviews-arrows button{
+  width:42px; height:42px; border-radius:50%; border:1px solid rgba(28,26,20,.2); display:flex; align-items:center; justify-content:center;
+  transition:background .3s var(--ease), border-color .3s var(--ease);
+}
+.reviews-arrows button:hover{border-color:var(--c-cuivre); background:rgba(182,115,58,.08);}
+
+/* ============================================================
+   GROUPES / PRIVATISATION
+   ============================================================ */
+.groups-grid{display:grid; gap:3rem;}
+@media(min-width:900px){ .groups-grid{grid-template-columns:1.05fr .95fr; gap:4rem;} }
+.groups-list{margin-top:1.6rem; display:grid; gap:1rem;}
+.groups-list li{display:flex; gap:.9rem; align-items:flex-start; font-size:.98rem; line-height:1.55; color:var(--paper-ink);}
+.groups-list svg{flex:none; width:20px; height:20px; margin-top:.15rem; color:var(--c-or);}
+
+/* ============================================================
+   RÉSERVATION
+   ============================================================ */
+.reservation{
+  background:linear-gradient(155deg, var(--c-cuivre) 0%, var(--c-bois) 60%, var(--c-noir) 130%);
+  color:var(--c-creme-2);
+}
+.reservation-grid{display:grid; gap:3rem;}
+@media(min-width:960px){ .reservation-grid{grid-template-columns:1fr 1fr; gap:5rem; align-items:center;} }
+.steps{display:grid; gap:1.4rem; margin-top:2rem;}
+.step{display:flex; gap:1.1rem; align-items:flex-start;}
+.step-n{
+  font-family:var(--font-display); font-style:italic; font-size:1.6rem; color:rgba(244,238,223,.55);
+  min-width:2ch;
+}
+.step h4{font-size:1.02rem; font-weight:600;}
+.step p{font-size:.9rem; color:rgba(244,238,223,.78); margin-top:.25rem; line-height:1.55;}
+.reservation-card{
+  background:rgba(21,19,14,.35); border:1px solid rgba(244,238,223,.25); backdrop-filter:blur(6px);
+  border-radius:var(--radius); padding:clamp(1.8rem,3vw,2.6rem);
+}
+.reservation-card h3{font-size:1.5rem;}
+.reservation-card p{margin-top:.8rem; color:rgba(244,238,223,.82); font-size:.95rem; line-height:1.6;}
+.reservation-card .btn{margin-top:1.6rem; width:100%;}
+.reservation-meta{display:flex; gap:1.4rem; margin-top:1.6rem; flex-wrap:wrap; font-size:.8rem; color:rgba(244,238,223,.75);}
+
+/* ============================================================
+   INFOS PRATIQUES
+   ============================================================ */
+.infos-grid{display:grid; gap:2.4rem;}
+@media(min-width:760px){ .infos-grid{grid-template-columns:repeat(3,1fr);} }
+.info-card{padding:2rem; background:var(--c-creme-2); border:1px solid rgba(28,26,20,.08); border-radius:var(--radius);}
+.info-card svg{width:30px; height:30px; color:var(--c-cuivre); margin-bottom:1.1rem;}
+.info-card h3{font-size:1.1rem;}
+.info-card p, .info-card ul{margin-top:.7rem; font-size:.92rem; color:var(--ink-soft); line-height:1.6;}
+.pay-icons{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;}
+.pay-icons span{
+  font-size:.68rem; letter-spacing:.03em; padding:.4em .8em; border:1px solid rgba(28,26,20,.16);
+  border-radius:999px; color:var(--ink-soft);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list{max-width:820px; border-top:1px solid rgba(28,26,20,.14);}
+.faq-item{border-bottom:1px solid rgba(28,26,20,.14);}
+.faq-q{
+  width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:1.5rem 0; font-family:var(--font-display); font-size:1.08rem; font-weight:500; color:var(--ink);
+}
+.faq-q .plus{font-size:1.4rem; color:var(--c-cuivre); transition:transform .3s var(--ease); font-family:var(--font-body); font-weight:300;}
+.faq-item[data-open="true"] .plus{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .4s var(--ease);}
+.faq-a p{padding-bottom:1.5rem; font-size:.96rem; color:var(--ink-soft); line-height:1.65; max-width:66ch;}
+
+/* ============================================================
+   ACCÈS / CARTE
+   ============================================================ */
+.acces-grid{display:grid; gap:2.4rem;}
+@media(min-width:900px){ .acces-grid{grid-template-columns:1fr 1.2fr;} }
+.acces-map{position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3; border:1px solid rgba(244,238,223,.18);}
+.acces-map iframe{width:100%; height:100%; border:0; filter:grayscale(.35) contrast(1.05);}
+.acces-detail{display:flex; gap:1rem; align-items:flex-start; margin-top:1.4rem;}
+.acces-detail svg{width:20px; height:20px; color:var(--c-or); flex:none; margin-top:.2rem;}
+.acces-detail p, .acces-detail a{font-size:.95rem; color:var(--paper-ink); line-height:1.55; text-decoration:none;}
+.acces-detail a:hover{color:var(--c-or);}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{display:grid; gap:3rem;}
+@media(min-width:900px){ .contact-grid{grid-template-columns:1fr 1fr; gap:5rem;} }
+.field{margin-bottom:1.3rem;}
+.field label{display:block; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.5rem;}
+.field input, .field textarea{
+  width:100%; padding:.85em 1em; background:var(--c-creme-2); border:1px solid rgba(28,26,20,.18);
+  border-radius:var(--radius); color:var(--ink); transition:border-color .25s var(--ease);
+}
+.field input:focus, .field textarea:focus{border-color:var(--c-cuivre); outline:none;}
+.field-row{display:grid; gap:1.3rem;}
+@media(min-width:520px){ .field-row{grid-template-columns:1fr 1fr;} }
+.form-note{font-size:.78rem; color:var(--ink-soft); margin-top:1rem; line-height:1.55;}
+.form-success{display:none; margin-top:1.2rem; padding:1rem 1.2rem; background:rgba(30,59,44,.08); border:1px solid var(--c-vert); border-radius:var(--radius); font-size:.9rem;}
+.form-success.show{display:block;}
+.newsletter-box{margin-top:2.5rem; padding-top:2.5rem; border-top:1px solid rgba(28,26,20,.14);}
+.newsletter-form{display:flex; gap:.8rem; margin-top:1rem; flex-wrap:wrap;}
+.newsletter-form input{flex:1; min-width:200px; padding:.85em 1em; border:1px solid rgba(28,26,20,.18); border-radius:999px; background:var(--c-creme-2);}
+.newsletter-form button{border-radius:999px;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--c-noir); color:var(--paper-ink); padding:clamp(3.5rem,7vw,5.5rem) 0 2rem;}
+.footer-grid{display:grid; gap:2.6rem;}
+@media(min-width:800px){ .footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;} }
+.footer-brand strong{font-family:var(--font-display); font-size:1.5rem; color:var(--c-creme-2);}
+.footer-brand p{margin-top:1rem; font-size:.9rem; line-height:1.6; max-width:32ch; color:rgba(244,238,223,.65);}
+.footer-social{display:flex; gap:.8rem; margin-top:1.4rem;}
+.footer-social a{
+  width:38px; height:38px; border:1px solid rgba(244,238,223,.25); border-radius:50%; display:flex; align-items:center; justify-content:center;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.footer-social a:hover{border-color:var(--c-or); background:rgba(201,162,75,.1);}
+.footer-col h4{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--c-or); margin-bottom:1.1rem;}
+.footer-col ul{display:grid; gap:.7rem;}
+.footer-col a{font-size:.88rem; color:rgba(244,238,223,.72); text-decoration:none;}
+.footer-col a:hover{color:var(--c-creme-2);}
+.footer-bottom{
+  margin-top:3.5rem; padding-top:1.8rem; border-top:1px solid rgba(244,238,223,.12);
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-size:.76rem; color:rgba(244,238,223,.5);
+}
+.footer-bottom .legal{display:flex; flex-wrap:wrap; gap:1.2rem;}
+.footer-bottom a{color:inherit; text-decoration:none;}
+.footer-bottom a:hover{color:var(--c-creme-2);}
+
+/* ============================================================
+   FLOATING RESERVE CTA
+   ============================================================ */
+.float-cta{
+  position:fixed; right:1.4rem; bottom:1.4rem; z-index:400;
+  opacity:0; pointer-events:none; transform:translateY(12px) scale(.94);
+  transition:opacity .4s var(--ease), transform .4s var(--ease);
+}
+.float-cta.show{opacity:1; pointer-events:auto; transform:none;}
+@media(max-width:640px){
+  .float-cta{left:1rem; right:1rem; bottom:1rem;}
+  .float-cta .btn{width:100%;}
+}
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+.center{text-align:center; margin-left:auto; margin-right:auto;}
+.mt-lg{margin-top:clamp(2.4rem,4vw,3.6rem);}
+.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#accueil" class="brand">
+      <strong>Brasserie des Ducs</strong>
+      <span>Bayeux · Depuis 2025</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="#histoire">Notre histoire</a>
+      <a href="#chef">Le Chef</a>
+      <a href="#menus">La Carte</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#groupes">Groupes</a>
+      <a href="#acces">Accès</a>
+    </nav>
+    <div class="header-actions">
+      <a class="gift-link" href="https://bookings.zenchef.com/shop?rid=374137" target="_blank" rel="noopener">Bons cadeaux</a>
+      <a class="btn btn-cuivre btn-sm" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver une table</a>
+      <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-mobile" id="navMobile" aria-label="Navigation mobile">
+  <a href="#histoire">Notre histoire</a>
+  <a href="#chef">Le Chef</a>
+  <a href="#menus">La Carte</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#avis">Avis</a>
+  <a href="#groupes">Groupes</a>
+  <a href="#acces">Accès / Contact</a>
+  <div class="nav-mobile-cta">
+    <a class="btn btn-cuivre" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver</a>
+    <a class="btn btn-ghost-dark" href="https://bookings.zenchef.com/shop?rid=374137" target="_blank" rel="noopener">Bons cadeaux</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="accueil">
+  <div class="hero-bg-photo">
+    <img class="photo" src="images/hero-salle.jpg" alt="Salle de la Brasserie des Ducs, ambiance art déco au cœur de Bayeux" data-caption="Photo — salle &amp; bar, à intégrer">
+  </div>
+  <svg class="hero-arch" viewBox="0 0 200 120" fill="none" aria-hidden="true">
+    <path d="M4 118 V40 A96 96 0 0 1 196 40 V118" stroke="currentColor" stroke-width="1"/>
+    <path d="M22 118 V48 A78 78 0 0 1 178 48 V118" stroke="currentColor" stroke-width="1"/>
+    <path d="M40 118 V56 A60 60 0 0 1 160 56 V118" stroke="currentColor" stroke-width="1"/>
+  </svg>
+  <div class="hero-inner container">
+    <p class="eyebrow hero-eyebrow">Bayeux, cœur historique</p>
+    <h1>Brasserie<br><em>des Ducs</em></h1>
+    <p class="hero-sub">Bar · Brasserie · Restaurant</p>
+    <p class="hero-lead">Une ambiance chaleureuse et conviviale, une cuisine canaille et généreuse d'inspiration normande — le Chef vous ouvre ses portes 7 jours sur 7, au 41 rue Saint-Patrice.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-cuivre" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver une table</a>
+      <a class="btn btn-ghost-dark" href="#menus">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><span>Découvrir</span><span class="line"></span></div>
+</section>
+
+<!-- ============================================================
+     CHIFFRES CLÉS
+============================================================ -->
+<section class="stats">
+  <div class="container stats-grid reveal-stagger">
+    <div class="stat reveal" style="--i:0">
+      <svg class="stat-arch" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 44V20a18 18 0 0 1 36 0v24" stroke="currentColor" stroke-width="1.4"/></svg>
+      <strong>Ouvert 7j/7</strong>
+      <span>Midi &amp; soir, tous les jours</span>
+    </div>
+    <div class="stat reveal" style="--i:1">
+      <svg class="stat-arch" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 44V20a18 18 0 0 1 36 0v24" stroke="currentColor" stroke-width="1.4"/></svg>
+      <strong>Cuisine canaille &amp; généreuse</strong>
+      <span>Inspirations normandes</span>
+    </div>
+    <div class="stat reveal" style="--i:2">
+      <svg class="stat-arch" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 44V20a18 18 0 0 1 36 0v24" stroke="currentColor" stroke-width="1.4"/></svg>
+      <strong>Groupes &amp; privatisation</strong>
+      <span>Location de salle</span>
+    </div>
+    <div class="stat reveal" style="--i:3">
+      <svg class="stat-arch" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 44V20a18 18 0 0 1 36 0v24" stroke="currentColor" stroke-width="1.4"/></svg>
+      <strong>41 rue Saint-Patrice</strong>
+      <span>Cœur historique de Bayeux</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRÉSENTATION
+============================================================ -->
+<section class="on-dark" id="histoire">
+  <div class="container presentation">
+    <div class="reveal">
+      <div class="frame wide">
+        <img class="photo" src="images/presentation-facade.jpg" alt="Façade de la Brasserie des Ducs, 41 rue Saint-Patrice à Bayeux" data-caption="Photo — façade">
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Notre histoire</p>
+      <h2>Un lieu chargé d'histoire,<br>une adresse résolument nouvelle.</h2>
+      <div class="col-text mt-lg">
+        <p>La Brasserie des Ducs vous ouvre ses portes dans une ambiance chaleureuse et conviviale, au cœur de Bayeux, à deux pas de la cathédrale et de la célèbre tapisserie.</p>
+        <span class="pull">« Une cuisine canaille et généreuse, entre tradition normande et inspirations plus lointaines. »</span>
+        <p>Vitraux colorés, banquettes en velours et lignes art déco composent un décor élégant où l'on se sent aussi bien pour un déjeuner entre amis que pour un dîner en famille — dans la bonne humeur, toujours au rendez-vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="deco-divider" aria-hidden="true">
+  <svg viewBox="0 0 120 30" fill="none"><path d="M2 28 L60 4 L118 28" stroke="currentColor" stroke-width="1"/><circle cx="60" cy="4" r="2.5" fill="currentColor"/></svg>
+</div>
+
+<!-- ============================================================
+     LE CHEF
+============================================================ -->
+<section id="chef">
+  <div class="container chef-grid">
+    <div class="reveal">
+      <div class="frame tall">
+        <img class="photo" src="images/le-chef.jpg" alt="Portrait du Chef de la Brasserie des Ducs en cuisine" data-caption="Photo — portrait du Chef">
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">En cuisine</p>
+      <h2>Le Chef</h2>
+      <div class="col-text mt-lg">
+        <p>En cuisine, le Chef compose une carte généreuse où se croisent les produits normands — beurre, crème, cidre, Calvados — et des influences puisées bien au-delà du Bessin.</p>
+        <p>Moules traditionnelles ou au camembert, tripes à la mode de Caen, entrecôte Rossini : chaque assiette est pensée pour le partage, dans le respect du produit et de la tradition brasserie.</p>
+      </div>
+      <p class="chef-sign">— L'équipe de la Brasserie des Ducs</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPÉCIALITÉS
+============================================================ -->
+<section class="on-beige" id="specialites">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nos spécialités</p>
+      <h2>Des classiques de brasserie,<br>sans compromis.</h2>
+      <p>Une sélection de plats signatures — la carte complète, avec la formule du midi et les menus, vous attend juste après.</p>
+    </div>
+    <div class="dish-grid reveal-stagger">
+      <article class="dish-card reveal" style="--i:0">
+        <div class="frame square"><img class="photo" src="images/plat-moules-trad.jpg" alt="Moules traditionnelles, marinière" data-caption="Photo — moules traditionnelles"></div>
+        <span class="tag">Fruits de mer</span>
+        <h3>Moules traditionnelles</h3>
+        <p>À la marinière, servies avec leurs frites maison.</p>
+      </article>
+      <article class="dish-card reveal" style="--i:1">
+        <div class="frame square"><img class="photo" src="images/plat-moules-camembert.jpg" alt="Moules au camembert" data-caption="Photo — moules au camembert"></div>
+        <span class="tag">Signature normande</span>
+        <h3>Moules au camembert</h3>
+        <p>La générosité normande dans toute sa gourmandise.</p>
+      </article>
+      <article class="dish-card reveal" style="--i:2">
+        <div class="frame square"><img class="photo" src="images/plat-tripes.jpg" alt="Tripes à la mode de Caen" data-caption="Photo — tripes mode de Caen"></div>
+        <span class="tag">Tradition</span>
+        <h3>Tripes à la mode de Caen</h3>
+        <p>Le grand classique normand, mijoté longuement.</p>
+      </article>
+      <article class="dish-card reveal" style="--i:3">
+        <div class="frame square"><img class="photo" src="images/plat-entrecote.jpg" alt="Entrecôte Rossini" data-caption="Photo — entrecôte Rossini"></div>
+        <span class="tag">Viande</span>
+        <h3>Entrecôte Rossini</h3>
+        <p>Pièce généreuse, sauce périgueux et foie gras poêlé.</p>
+      </article>
+      <article class="dish-card reveal" style="--i:4">
+        <div class="frame square"><img class="photo" src="images/plat-choucroute.jpg" alt="Choucroute brasserie" data-caption="Photo — choucroute brasserie"></div>
+        <span class="tag">Brasserie</span>
+        <h3>Choucroute brasserie</h3>
+        <p>Charcuterie fine et choucroute mijotée maison.</p>
+      </article>
+      <article class="dish-card reveal" style="--i:5">
+        <div class="frame square"><img class="photo" src="images/plat-coquilles.jpg" alt="Coquilles Saint-Jacques" data-caption="Photo — coquilles Saint-Jacques"></div>
+        <span class="tag">Fruits de mer</span>
+        <h3>Coquilles Saint-Jacques</h3>
+        <p>Poêlées, selon arrivage et saison.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MENUS
+============================================================ -->
+<section class="on-noir" id="menus">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">La carte</p>
+      <h2>Formules &amp; menus</h2>
+      <p>Formule du midi, menus du soir, carte des boissons et sélection de vins — la carte complète et actualisée est présentée en salle et lors de la réservation.</p>
+    </div>
+    <div class="menu-grid reveal-stagger">
+      <div class="ticket reveal" style="--i:0">
+        <div class="ticket-top"><h3>Formule Midi</h3><span class="ticket-price">19,50 €</span></div>
+        <p>Entrée, plat &amp; dessert — du lundi au dimanche, service du midi.</p>
+        <span class="note">Plat du jour seul : 11,50 €. Tarifs indicatifs, à confirmer avec l'équipe.</span>
+      </div>
+      <div class="ticket reveal" style="--i:1">
+        <div class="ticket-top"><h3>Menu Brasserie</h3><span class="ticket-price">23,90 €</span></div>
+        <p>Entrée, plat &amp; dessert — la générosité de la brasserie, midi et soir.</p>
+        <span class="note">Tarifs indicatifs, à confirmer avec l'équipe.</span>
+      </div>
+      <div class="ticket reveal" style="--i:2">
+        <div class="ticket-top"><h3>Menu Les Ducs</h3><span class="ticket-price">29,90 €</span></div>
+        <p>Entrée, plat &amp; dessert — la sélection la plus complète de la maison.</p>
+        <span class="note">Tarifs indicatifs, à confirmer avec l'équipe.</span>
+      </div>
+      <div class="ticket reveal" style="--i:3">
+        <div class="ticket-top"><h3>Boissons &amp; Vins</h3></div>
+        <p>Sélection de vins, cidres et Calvados normands, cocktails et boissons chaudes — carte complète sur place.</p>
+        <span class="note">Consultez la carte des boissons et la carte des vins en ligne.</span>
+      </div>
+    </div>
+    <div class="menus-cta">
+      <a class="btn btn-line" href="https://www.brasseriedesducs-bayeux.com/menus-carte/" target="_blank" rel="noopener">Voir la carte complète</a>
+      <a class="btn btn-ghost-dark" href="https://bookings.zenchef.com/shop?rid=374137" target="_blank" rel="noopener">Offrir un bon cadeau</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALERIE
+============================================================ -->
+<section id="galerie">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Galerie</p>
+      <h2>L'ambiance de la maison</h2>
+      <p>Vitraux, velours et lignes art déco — un aperçu du décor, en attendant vos photos réelles.</p>
+    </div>
+    <div class="gallery reveal-stagger">
+      <div class="frame g1 reveal" style="--i:0" tabindex="0" data-lightbox data-caption="Salle principale — vitraux &amp; velours">
+        <img class="photo" src="images/galerie-salle.jpg" alt="Salle principale, vitraux colorés et banquettes en velours" data-caption="Photo — salle principale">
+      </div>
+      <div class="frame reveal" style="--i:1" tabindex="0" data-lightbox data-caption="Le bar &amp; le zinc">
+        <img class="photo" src="images/galerie-bar.jpg" alt="Le bar de la Brasserie des Ducs" data-caption="Photo — bar">
+      </div>
+      <div class="frame reveal" style="--i:2" tabindex="0" data-lightbox data-caption="La terrasse">
+        <img class="photo" src="images/galerie-terrasse.jpg" alt="Terrasse de la Brasserie des Ducs" data-caption="Photo — terrasse">
+      </div>
+      <div class="frame reveal" style="--i:3" tabindex="0" data-lightbox data-caption="Assiette signature">
+        <img class="photo" src="images/galerie-assiette.jpg" alt="Assiette signature de la Brasserie des Ducs" data-caption="Photo — assiette">
+      </div>
+      <div class="frame reveal" style="--i:4" tabindex="0" data-lightbox data-caption="Cave &amp; sélection de vins">
+        <img class="photo" src="images/galerie-cave.jpg" alt="Sélection de vins de la Brasserie des Ducs" data-caption="Photo — cave à vins">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Fermer ✕</button>
+  <div class="lightbox-inner">
+    <div class="frame" id="lightboxFrame"><div class="is-placeholder" data-caption=""></div></div>
+    <p id="lightboxCaption"></p>
+  </div>
+</div>
+
+<!-- ============================================================
+     AVIS
+============================================================ -->
+<section class="on-beige" id="avis">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Ils en parlent</p>
+      <h2>Avis de nos clients</h2>
+      <p>Ce bloc reprendra automatiquement vos avis Google une fois connecté — trois exemples de mise en forme ci-dessous.</p>
+    </div>
+    <div class="reviews-wrap reveal">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>« Accueil chaleureux, cadre élégant et cuisine généreuse — une belle étape lors de notre passage à Bayeux. »</p>
+          <div class="who">Client Google — exemple à remplacer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>« Les moules camembert et l'entrecôte Rossini nous ont conquis, service agréable et rythmé. »</p>
+          <div class="who">Client Google — exemple à remplacer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>« Un décor art déco superbe, vitraux et banquettes en velours — parfait pour un repas en groupe. »</p>
+          <div class="who">Client Google — exemple à remplacer</div>
+        </div>
+      </div>
+      <div class="reviews-controls">
+        <div class="reviews-dots" id="reviewsDots"></div>
+        <div class="reviews-arrows">
+          <button id="reviewPrev" aria-label="Avis précédent">←</button>
+          <button id="reviewNext" aria-label="Avis suivant">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-lg">
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+des+Ducs+Bayeux" target="_blank" rel="noopener">Voir tous nos avis sur Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GROUPES / ÉVÉNEMENTS
+============================================================ -->
+<section class="on-dark" id="groupes">
+  <div class="container groups-grid">
+    <div class="reveal">
+      <p class="eyebrow">Événements &amp; groupes</p>
+      <h2>Vos repas de groupe et privatisations</h2>
+      <p class="hero-lead" style="margin-top:1rem;">Anniversaires, repas d'entreprise, retrouvailles en famille : la Brasserie des Ducs peut accueillir vos groupes et propose la location de salle.</p>
+      <ul class="groups-list mt-lg">
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10a8 8 0 0 1 16 0v10" stroke="currentColor" stroke-width="1.4"/></svg>Accueil de groupes, midi comme soir</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10a8 8 0 0 1 16 0v10" stroke="currentColor" stroke-width="1.4"/></svg>Location de salle pour vos événements privés</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10a8 8 0 0 1 16 0v10" stroke="currentColor" stroke-width="1.4"/></svg>Menus adaptés, à composer avec l'équipe</li>
+      </ul>
+      <div class="menus-cta">
+        <a class="btn btn-cuivre" href="https://userdocs.zenchef.com/374137/SDPU8yXtcnFd7vo2yN4Tob0zjPoNkV1Go0o7SEOL.pdf" target="_blank" rel="noopener">Télécharger l'offre groupes</a>
+        <a class="btn btn-ghost-dark" href="https://www.brasseriedesducs-bayeux.com/informations-contact/" target="_blank" rel="noopener">Nous contacter</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="frame wide">
+        <img class="photo" src="images/groupes-salle.jpg" alt="Salle privatisable de la Brasserie des Ducs pour vos événements" data-caption="Photo — salle privatisable">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RÉSERVATION
+============================================================ -->
+<section class="reservation" id="reservation">
+  <div class="container reservation-grid">
+    <div class="reveal">
+      <p class="eyebrow">Réservation</p>
+      <h2>Votre table en moins de deux clics</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-n">01</span>
+          <div><h4>Choisissez date, heure et nombre de couverts</h4><p>Le service de réservation en ligne affiche les disponibilités en temps réel.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-n">02</span>
+          <div><h4>Confirmez en un instant</h4><p>Aucune création de compte nécessaire pour réserver.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-n">03</span>
+          <div><h4>Recevez votre confirmation</h4><p>Par email, avec un rappel avant votre venue.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="reservation-card">
+        <p class="eyebrow" style="color:var(--c-creme-2)">Réserver maintenant</p>
+        <h3>Brasserie des Ducs</h3>
+        <p>41 rue Saint-Patrice, 14400 Bayeux — ouvert 7j/7, 11h00-14h30 et 18h00-22h00.</p>
+        <a class="btn btn-cuivre" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Accéder à la réservation en ligne</a>
+        <div class="reservation-meta">
+          <span>📞 <a href="tel:+33231108655" style="color:inherit; text-decoration:none;">02 31 10 86 55</a></span>
+          <span>🎁 <a href="https://bookings.zenchef.com/shop?rid=374137" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Bons cadeaux</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INFOS PRATIQUES
+============================================================ -->
+<section id="infos-pratiques">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Infos pratiques</p>
+      <h2>Tout ce qu'il faut savoir</h2>
+    </div>
+    <div class="infos-grid reveal-stagger">
+      <div class="info-card reveal" style="--i:0">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Horaires</h3>
+        <p>Lundi — Dimanche<br>11h00 – 14h30 · 18h00 – 22h00</p>
+      </div>
+      <div class="info-card reveal" style="--i:1">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16M4 10a8 6 0 1 1 16 0M4 10v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Cuisine &amp; établissement</h3>
+        <p>Française traditionnelle revisitée<br>Bar · Brasserie · Restaurant<br>Groupes bienvenus, location de salle</p>
+      </div>
+      <div class="info-card reveal" style="--i:2">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Moyens de paiement</h3>
+        <div class="pay-icons">
+          <span>Carte bancaire</span><span>American Express</span><span>Titres restaurant</span>
+          <span>Chèque Sodexo</span><span>Chèques Vacances</span><span>Virement</span><span>Espèces</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="on-beige" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions fréquentes</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item" data-open="false">
+        <button class="faq-q"><span>Faut-il réserver pour venir déjeuner ou dîner ?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>La réservation n'est pas obligatoire mais fortement conseillée, notamment le week-end et pour les groupes. La réservation en ligne est gratuite et prend moins de deux minutes.</p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q"><span>La Brasserie des Ducs accueille-t-elle les groupes ?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Oui, l'établissement peut accueillir des groupes et propose la location de salle pour vos événements. Téléchargez notre offre groupes ou contactez l'équipe directement.</p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q"><span>Quels moyens de paiement sont acceptés ?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Carte bancaire, American Express, espèces, virement, chèques, Chèques Vacances ainsi que les titres restaurant (Ticket Restaurant, Chèque Sodexo).</p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q"><span>Proposez-vous des bons cadeaux ?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Oui, les bons cadeaux de la Brasserie des Ducs sont disponibles en ligne et peuvent être offerts pour toutes les occasions.</p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q"><span>Le restaurant est-il accessible ?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Retrouvez toutes les informations d'accessibilité de l'établissement sur notre page dédiée, en lien dans le pied de page.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACCÈS / CARTE
+============================================================ -->
+<section class="on-noir" id="acces">
+  <div class="container acces-grid">
+    <div class="reveal">
+      <p class="eyebrow">Accès</p>
+      <h2>Nous trouver</h2>
+      <div class="acces-detail mt-lg">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.4"/></svg>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Brasserie+des+Ducs+41+rue+Saint+patrice++14400+Bayeux+fr" target="_blank" rel="noopener">41 rue Saint-Patrice, 14400 Bayeux</a>
+      </div>
+      <div class="acces-detail">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2C9.5 22 2 14.5 2 7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <a href="tel:+33231108655">02 31 10 86 55</a>
+      </div>
+      <div class="acces-detail">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.4"/></svg>
+        <p>Ouvert tous les jours, 11h00-14h30 &amp; 18h00-22h00</p>
+      </div>
+      <div class="menus-cta">
+        <a class="btn btn-cuivre" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver une table</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="acces-map">
+        <iframe src="https://maps.google.com/maps?q=41+rue+Saint-Patrice+14400+Bayeux&amp;z=16&amp;output=embed" title="Localisation de la Brasserie des Ducs, 41 rue Saint-Patrice, Bayeux" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Vous désirez nous contacter ?</h2>
+      <p class="section-head" style="margin-top:1.2rem;">Remplissez le formulaire ci-dessous, l'équipe de la Brasserie des Ducs revient vers vous au plus vite. Pour toute demande de réservation, utilisez directement le bouton Réserver.</p>
+      <form id="contactForm" class="mt-lg" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-name">Nom</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-outline" type="submit">Envoyer le message</button>
+        <p class="form-note">Selon l'article L.223-2 du code de la consommation, vous pouvez vous inscrire sur la liste d'opposition au démarchage téléphonique <a href="https://www.bloctel.gouv.fr" target="_blank" rel="noopener" style="color:var(--c-cuivre)">Bloctel</a>. Pour en savoir plus, consultez notre <a href="https://www.brasseriedesducs-bayeux.com/politique-de-confidentialite/" target="_blank" rel="noopener" style="color:var(--c-cuivre)">politique de confidentialité</a>.</p>
+        <p class="form-success" id="formSuccess">Merci ! Nous avons bien reçu votre message. Nous revenons vers vous au plus vite.</p>
+      </form>
+      <div class="newsletter-box">
+        <p class="eyebrow">Newsletter</p>
+        <h3 style="margin-top:.7rem; font-size:1.2rem;">Recevez nos actualités</h3>
+        <p style="margin-top:.6rem; color:var(--ink-soft); font-size:.9rem;">Inscrivez-vous pour recevoir des communications personnalisées et des offres par email.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Votre adresse email" required aria-label="Votre adresse email">
+          <button class="btn btn-cuivre" type="submit">S'abonner</button>
+        </form>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="frame">
+        <img class="photo" src="images/contact-ambiance.jpg" alt="Ambiance chaleureuse de la Brasserie des Ducs en soirée" data-caption="Photo — ambiance soirée">
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <strong>Brasserie des Ducs</strong>
+        <p>Bar Brasserie Restaurant au cœur de Bayeux. Cuisine canaille et généreuse, ambiance art déco, ouvert 7j/7.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61571967224508" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 8.5h2V5.2c-.35-.05-1.5-.2-2.86-.2-2.83 0-4.77 1.78-4.77 5.06V13H6.5v3.6h2.87V23h3.6v-6.4h2.86l.46-3.6h-3.32V10.5c0-1.04.29-1.75 1.78-1.75Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.instagram.com/brasseriedesducs.bayeux/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explorer</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#chef">Le Chef</a></li>
+          <li><a href="#menus">La Carte</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#groupes">Groupes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Réserver</h4>
+        <ul>
+          <li><a href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver une table</a></li>
+          <li><a href="https://bookings.zenchef.com/shop?rid=374137" target="_blank" rel="noopener">Bons cadeaux</a></li>
+          <li><a href="https://userdocs.zenchef.com/374137/SDPU8yXtcnFd7vo2yN4Tob0zjPoNkV1Go0o7SEOL.pdf" target="_blank" rel="noopener">Offre groupes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Accès</h4>
+        <ul>
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Brasserie+des+Ducs+41+rue+Saint+patrice++14400+Bayeux+fr" target="_blank" rel="noopener">41 rue Saint-Patrice, Bayeux</a></li>
+          <li><a href="tel:+33231108655">02 31 10 86 55</a></li>
+          <li><a href="https://www.brasseriedesducs-bayeux.com/informations-contact/" target="_blank" rel="noopener">Accès / Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brasserie des Ducs</span>
+      <div class="legal">
+        <a href="https://www.brasseriedesducs-bayeux.com/mentions-legales/" target="_blank" rel="noopener">Mentions légales</a>
+        <a href="https://bookings.zenchef.com/gtc?rid=374137&amp;host=www.brasseriedesducs-bayeux.com" target="_blank" rel="noopener">CGU</a>
+        <a href="https://www.brasseriedesducs-bayeux.com/politique-de-confidentialite/" target="_blank" rel="noopener">Confidentialité</a>
+        <a href="https://www.brasseriedesducs-bayeux.com/politique-cookies/" target="_blank" rel="noopener">Cookies</a>
+        <a href="https://www.brasseriedesducs-bayeux.com/accessibilite/" target="_blank" rel="noopener">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING RESERVE CTA
+============================================================ -->
+<div class="float-cta" id="floatCta">
+  <a class="btn btn-cuivre" href="https://bookings.zenchef.com/results?rid=374137&amp;pid=1001" target="_blank" rel="noopener">Réserver une table</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Image fallback → elegant placeholder ---------- */
+  document.querySelectorAll('img.photo').forEach(function(img){
+    img.addEventListener('error', function(){
+      var frame = img.closest('.frame');
+      if (frame){
+        frame.classList.add('is-placeholder');
+        frame.setAttribute('data-caption', img.getAttribute('data-caption') || img.alt || 'Photo à intégrer');
+      }
+      img.remove();
+    });
+  });
+
+  /* ---------- Header scroll state ---------- */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- Mobile nav ---------- */
+  var burger = document.getElementById('burgerBtn');
+  var navMobile = document.getElementById('navMobile');
+  burger.addEventListener('click', function(){
+    var open = navMobile.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navMobile.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navMobile.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---------- Floating CTA visibility ---------- */
+  var floatCta = document.getElementById('floatCta');
+  var hero = document.getElementById('accueil');
+  var reservation = document.getElementById('reservation');
+  if ('IntersectionObserver' in window){
+    var heroObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        floatCta.classList.toggle('show', !entry.isIntersecting);
+      });
+    }, {threshold:0});
+    heroObs.observe(hero);
+    var resObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) floatCta.classList.remove('show');
+      });
+    }, {threshold:.5});
+    resObs.observe(reservation);
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.getAttribute('data-open') === 'true';
+      document.querySelectorAll('.faq-item').forEach(function(other){
+        other.setAttribute('data-open','false');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen){
+        item.setAttribute('data-open','true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- Reviews carousel ---------- */
+  var track = document.getElementById('reviewsTrack');
+  var cards = track.querySelectorAll('.review-card');
+  var dotsWrap = document.getElementById('reviewsDots');
+  var perView = function(){ return window.innerWidth >= 760 ? 3 : 1; };
+  var index = 0;
+
+  function pageCount(){ return Math.max(1, cards.length - perView() + 1); }
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    for (var i=0; i<pageCount(); i++){
+      var d = document.createElement('button');
+      d.setAttribute('aria-label','Aller à l\'avis ' + (i+1));
+      if (i===index) d.classList.add('active');
+      (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+      dotsWrap.appendChild(d);
+    }
+  }
+  function goTo(i){
+    index = Math.max(0, Math.min(i, pageCount()-1));
+    var cardWidth = cards[0].getBoundingClientRect().width + 26;
+    track.style.transform = 'translateX(' + (-index*cardWidth) + 'px)';
+    track.style.transition = 'transform .5s cubic-bezier(.22,.7,.24,1)';
+    Array.prototype.forEach.call(dotsWrap.children, function(d,di){ d.classList.toggle('active', di===index); });
+  }
+  document.getElementById('reviewPrev').addEventListener('click', function(){ goTo(index-1<0 ? pageCount()-1 : index-1); });
+  document.getElementById('reviewNext').addEventListener('click', function(){ goTo(index+1>=pageCount() ? 0 : index+1); });
+  buildDots();
+  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
+
+  var autoplay;
+  function startAutoplay(){
+    if (reduceMotion) return;
+    autoplay = setInterval(function(){ goTo(index+1>=pageCount() ? 0 : index+1); }, 5500);
+  }
+  function stopAutoplay(){ clearInterval(autoplay); }
+  startAutoplay();
+  track.addEventListener('mouseenter', stopAutoplay);
+  track.addEventListener('mouseleave', startAutoplay);
+
+  /* ---------- Gallery lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxFrame = document.getElementById('lightboxFrame');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+  document.querySelectorAll('[data-lightbox]').forEach(function(el){
+    function openLb(){
+      var caption = el.getAttribute('data-caption') || '';
+      lightboxFrame.className = 'frame';
+      lightboxFrame.innerHTML = '<div class="is-placeholder" data-caption="' + caption + '"></div>';
+      lightboxFrame.querySelector('.is-placeholder').classList.add('is-placeholder');
+      lightboxFrame.classList.add('is-placeholder');
+      lightboxFrame.setAttribute('data-caption', caption);
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    el.addEventListener('click', openLb);
+    el.addEventListener('keypress', function(e){ if (e.key==='Enter') openLb(); });
+  });
+  function closeLb(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightboxClose').addEventListener('click', closeLb);
+  lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLb(); });
+
+  /* ---------- Contact form (visuel — à relier au vrai backend) ---------- */
+  var contactForm = document.getElementById('contactForm');
+  var formSuccess = document.getElementById('formSuccess');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    formSuccess.classList.add('show');
+    contactForm.reset();
+  });
+  var newsletterForm = document.getElementById('newsletterForm');
+  newsletterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    newsletterForm.querySelector('input').value = '';
+    newsletterForm.querySelector('button').textContent = 'Merci !';
+    setTimeout(function(){ newsletterForm.querySelector('button').textContent = "S'abonner"; }, 2500);
+  });
+
+})();
+</script>
+</body>
+</html>
